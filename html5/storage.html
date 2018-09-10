@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function(){
+            //cookie
+            //usr=123; pass=45; email=123@qq.com; phone=18846187541 注意('; ')为间隔的
+            //设置cookie的过期时间　expires=时间(默认是回话)
+            //设置作用域path=具体路径 默认是在当前操作的页面
+            /*document.cookie="usr=123";
+            document.cookie="pass=45";
+            document.cookie="email=123@qq.com";
+            document.cookie="phone=18846187541";*/
+            //详见cookie.html
+
+            //html5　本地存储 localStorage/sessionStorage
+           /* localStorage.itemA = "itemA"; //三种给赋值方法
+            var itmeB = "itmeB";
+            localStorage[itmeB] = "itmeB";
+            var itmeC = "itmeC";
+            localStorage.setItem(itmeC, "itemC");*/
+            //setItem("user","123")设置
+            //getItem("user")获取
+            //clear()干掉所有
+            //removeItem("user")干掉user
+
+            if (window.attachEvent) {　//监听storage 事件(同页面，修改storage不响应，不同页面同源就会相应)
+                //window.attachEvent("storage", storageData); //针对ie低版本
+            } else if (window.addEventListener) {
+                //window.addEventListener("storage", storageData, false);
+            }
+
+            //账号密码的保存
+            var names  = document.getElementsByName("names")[0],
+                pass = document.getElementsByName("pass")[0],
+                box = document.getElementsByName("box")[0];
+            names.value =  localStorage.getItem("names")?localStorage.getItem("names"):"";
+            pass.value  = localStorage.getItem("pass")?localStorage.getItem("pass"):"";
+            box.checked = names.value&&pass.value;
+            box.onclick  = function() {
+                if (box.checked) {
+                    localStorage.setItem("names", names.value);
+                    localStorage.setItem("pass", pass.value);
+                    box.checked = true;
+                } else {
+                    localStorage.removeItem("names");
+                    localStorage.removeItem("pass");
+                }
+            }
+            //刷新页面数据依然还在
+            var title=document.getElementsByName("title")[0];
+            var con=document.getElementsByName("con")[0];
+            var login=document.getElementById("login");
+
+            if(sessionStorage.title||sessionStorage.con){
+                title.value=sessionStorage.title;
+                con.value=sessionStorage.con;
+            }
+            login.onclick=function  () {
+                sessionStorage.title=title.value;
+                sessionStorage.con=con.value;
+            }
+
+        }
+    </script>
+</head>
+<body>
+用户名：<input type="text" name="names">  <br/>
+密码: <input type="password" name="pass"> <br/>
+是否保存：<input type="checkbox" name="box">
+
+标题：<input type="text" name="title"><br/>
+内容：<textarea rows=5 cols=15 name="con"></textarea><br/>
+<a href="test.php" id="login">登陆</a>
+</body>
+</html>

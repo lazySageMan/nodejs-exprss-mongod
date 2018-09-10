@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>database</title>
+    <script>
+        window.onload=function (){
+            //html5本地数据库
+            //1 openDatabase创建数据库
+            //openDatabase方法传递五个参数，分别是：数据库名、数据库版本号（可省略）、对数据库的描述、设置分配的数据库的大小、回调函数
+            var myWebDatabase = openDatabase("user", "1.0", "user info", 1024*1024, function(){});
+
+            if(myWebDatabase){
+                alert("The database has been created successfully!");
+            }else{
+                alert("The database has not been successfully created.");
+            }
+            //2 transaction 事务
+            /*db.transaction(function(query){
+            //executeSql(sql语句,数组[可选],回调函数[可选],错误回调函数[可选])
+                    query.executeSql(
+                        "CREATE TABLE IF NOT EXISTS member (id INTEGER PRIMARY KEY AUTOINCREMENT, member_name VARCHAR(10))",
+                        [],
+                        function(){document.querySelector('#create_table').innerHTML="数据表创建成功";},
+                        function(query,error){alert('数据表创建失败: '+error.message);
+                    });
+                }
+            );*/
+            //2添加数据
+            /*db.transaction(function(query){
+                query.executeSql('INSERT INTO member(member_name) values("谢竹")');
+                query.executeSql('INSERT INTO member(member_name) values("咪咕")');
+                document.querySelector('#add_data').innerHTML="添加数据成功";
+            });*/
+            //3查询
+            /*db.transaction( function(query){
+                //executeSql(sql语句,数组[可选],回调函数[可选],错误回调函数[可选])
+                query.executeSql(
+                    "SELECT * FROM member",
+                    [],
+                    function(query,result){
+                        var data = "查询数据:<br/>";
+                        for(i=0;i<result.rows.length;i++) {
+                            var id = result.rows.item(i).id;
+                            var member_name = result.rows.item(i).member_name;
+                            data += "id:"+id+" 会员名:"+member_name+"<br/>";
+                            document.querySelector('#select_data').innerHTML=data;
+                        }
+                    },
+                    function(query,error)
+                    { alert('查询失败: '+error.message);
+                });
+            });*/
+
+            //4更新数据
+            /*db.transaction( function(query){
+                //executeSql(sql语句,数组[可选],回调函数[可选],错误回调函数[可选])
+                query.executeSql(
+                    "UPDATE member SET member_name='谢竹博客' WHERE id=1",
+                    [],
+                    function(){document.querySelector('#update_data').innerHTML="更新数据成功";},
+                    function(query,error){alert('更新数据失败: '+error.message);
+                });
+            });*/
+
+            //5删除数据
+        /*db.transaction( function(query){
+            //executeSql(sql语句,数组[可选],回调函数[可选],错误回调函数[可选])
+            query.executeSql(
+                "DELETE FROM member WHERE id=2",
+                [],
+                function(){document.querySelector('#delete_data').innerHTML="删除数据成功";},
+                function(query,error){document.querySelector('#delete_data').innerHTML="删除数据失败";;
+            });
+        });*/
+
+        }
+    </script>
+</head>
+<body>
+    <p id="create_db"></p>
+    <p id="create_table"></p>
+    <p id="add_data"></p>
+    <p id="select_data"></p>
+    <p id="update_data"></p>
+    <p id="delete_data"></p>
+</body>
+</html>

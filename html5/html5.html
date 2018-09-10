@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>同域窗口下的通信</title>
+    <style></style>
+    <script>
+        window.onload=function(){
+            /*
+            * 1:不同的窗口的通信
+            *   iframe  框架  (可以通过js访问被包含的页面的DOM元素,通过contentWindow找到iframe下面的window对象);
+            *   window.open   可以返回被打开窗口的window对象
+            * 2:跨域情况下
+            *   possMessage  可以通过这个方法给另一个域发送信息
+            *   1.发送窗口　contentWindow.possMessage(a,b)   (a:代表发送的数据b:代表的发送的域且必须带协议)
+            *   2.接受窗口　通过addEventListener()绑定message事件　　其中ev.origin:发送域的来源　ev.data发送的数据
+            *
+            * */
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

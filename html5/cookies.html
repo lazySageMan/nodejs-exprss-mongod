@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function setCookie(name,value,hours,path){　//设置cookie
+            var d = new Date();
+            d.setTime(d.getTime() + hours * 3600 * 1000);
+            document.cookie = name + '=' + value + '; expires=' + d.toGMTString() +'; path='+path;
+        }
+        //setCookie("test","8008208820",0.05,"/");
+
+        function getCookie(name){  //根据name获取指定的cookie
+            var arr = document.cookie.split('; ');
+            for(var i = 0; i < arr.length; i++){
+                var temp = arr[i].split('=');
+                if(temp[0] == name){
+                    return temp[1];
+                }
+            }
+            return '';
+        }
+        //alert(getCookie("usr"));
+
+        function removeCookie(name){  //删除指定name的cookie
+            var d = new Date();
+            d.setTime(d.getTime() - 10000);
+            document.cookie = name + '=1; expires=' + d.toGMTString();
+        }
+        //removeCookie("phone");
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

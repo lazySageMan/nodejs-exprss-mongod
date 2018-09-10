@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>new ajax</title>
+    <script>
+        /*
+        * 标准浏览器的ajax新方法
+        *
+        *
+        * */
+        /*
+        * 例子1:ajax的无刷新上传(上传文件必须用post方式)
+        *   1:file.files　表示对应上传的文件，而且是一个类数组的一个列表
+        *   2: var oFormData=new FormData();
+        *      oFormData.append("file",file.files[0]);    转成2进制的数据
+        *      xhr.send(oFormData);    传输该二进制数据就好了
+        *   3: var oupLoad=xhr.upload;
+        *      oupLoad.onprogress=function(ev){
+        *           ev.total    要发送的总量
+        *           ev.loaded   已发送的总量
+        *      }
+        *
+        * */
+        window.onload=function(){
+            var file=document.getElementById("btn1");
+            var btn=document.getElementById("btn2");
+
+            btn2.onclick=function(){
+                console.log(file.files);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="file" value="选择文件" id="btn1"/>
+    <input type="button" value="点击上传" id="btn2"/>
+</body>
+</html>

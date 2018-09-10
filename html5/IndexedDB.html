@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IndexedDb</title>
+    <script>
+        window.onload=function(){
+            var students=[{
+                id:1001,
+                name:"Byron",
+                age:24
+            },{
+                id:1002,
+                name:"Frank",
+                age:30
+            },{
+                id:1003,
+                name:"Aaron",
+                age:26
+            }];
+            function openDB(name) {
+                var request=window.indexedDB.open(name); //声明一个对象
+                request.onerror=function(e){
+                    console.log('OPen Error!');
+                };
+                request.onsuccess=function(e){
+                    myDB.db=e.target.result;
+                };
+                request.onupgradeneeded=function(e){
+                    var db=e.target.result;
+                    if(!db.objectStoreNames.contains('students')){
+                        db.createObjectStore('students',{keyPath:"id"});
+                    }
+                    console.log('DB version changed to '+version);
+                };
+            }
+            function addData(db,storeName){
+                var transaction=db.transaction(storeName,'readwrite');
+                var store=transaction.objectStore(storeName);
+
+                for(var i=0;i<students.length;i++){
+                    store.add(students[i]);
+                }
+            }
+            var myDB={
+                name:'test',
+                version:1,
+                db:null
+            };
+            openDB(myDB.name,myDB.version);
+            setTimeout(function(){
+                addData(myDB.db,'students');
+            },1000);
+            //数据库的关闭　直接实例调用close()方法
+            //indexedDB.deleteDatabase(name); 删除数据库，根据索引删除
+
+            //objectStore 数据库表
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

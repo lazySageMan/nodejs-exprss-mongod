@@ -1,0 +1,321 @@
+*{
+    margin:0;
+    padding:0;
+}
+#userLeft{
+    width: 400px;
+    height:auto;
+    position:absolute;
+    top:420px;
+    right:50px;
+    border:1px solid red;
+}
+#userLeft .title{
+    margin-left: 30px;
+    margin-top:30px;
+}
+#userLeft .title span{
+    font-size: 25px;
+    color:orange;
+}
+#userLeft .line{
+    margin-left:50px;
+    margin-top:15px;
+}
+#userLeft .line span{
+    font-size: 18px;
+
+}
+#userLeft .line .text{
+    width:220px;
+    height:30px;
+    font-size: 18px;
+    margin-left: 5px;
+}
+#userLeft .line .button{
+    width:80px;
+    height:30px;
+    background:greenyellow;
+    color:white;
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+    border:0px;
+    margin-left:120px;
+    margin-bottom: 20px;
+    margin-right: 8px;
+}
+#userLeft #register{
+    border:1px solid black;
+    display: none;
+}
+#userLeft #login{
+    border:1px solid black;
+}
+#userLeft .line .link{
+    font-size: 12px;
+    color:red;
+    cursor:pointer;
+}
+#userLeft #userInfo{
+    width:400px;
+    height:250px;
+    border:1px solid black;
+}
+#userLeft #userInfo .watch{
+    color:orange;
+    font-size: 18px;
+    text-align: center;
+    margin-top:30px;
+}
+#userLeft #userInfo .logout{
+    color:red;
+    font-size: 12px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    cursor:pointer;
+}
+#userLeft #userInfo .userInfoTitle{
+    text-align: center;
+    margin-top:50px;
+}
+#userLeft #userInfo .userInfoTitle span{
+    font-size: 30px;
+    color: orangered;
+}
+#userLeft #userInfo .userName{
+    margin-left:30px;
+    margin-top:30px;
+    font-size: 18px;
+}
+#userLeft #userInfo .userName span{
+    font-size: 20px;
+    color:red;
+}
+#userLeft #userInfo .admin{
+    margin-top:20px;
+    margin-left: 25px;
+    font-size: 18px;
+}
+#login,#userInfo,#register{
+    background:whitesmoke;
+}
+/*头部*/
+header{
+    width: 100%;
+    height:300px;
+    background: url("/public/img/header-background.jpg");
+}
+
+/*导航*/
+nav{
+    height: 56px;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 2px solid #e1e1e1;
+    background: #fff;
+}
+nav .menu {
+    text-align: center;
+}
+nav .menu a {
+    font-size: 18px;
+    display: inline-block;
+    padding: 0px 20px;
+    height: 56px;
+    line-height: 56px;
+    text-decoration: none;
+}
+nav .menu a:hover, nav .menu a.focus {
+    margin-bottom: -2px;
+    border-bottom: 2px solid #e67e22;
+}
+
+/*左部分*/
+#right{
+    width:800px;
+    height: auto;
+    position: absolute;
+    top:420px;
+    right:550px;
+}
+#right .content{
+    width:800px;
+    height:300px;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    background: whitesmoke;
+}
+#right .content .title{
+    margin-left: 50px;
+}
+#right .content .Info{
+    width: auto;
+    height:20px;
+    font-size: 15px;
+    margin-top: 60px;
+    margin-left: 550px;
+}
+#right .content .jie{
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 18px;
+    color: #843534;
+}
+#right .content .views{
+    width: 200px;
+    height:30px;
+    margin-left: 550px;
+    margin-top: 10px;
+}
+#right .content .button{
+    text-align: center;
+    margin-top: 8px;
+}
+#right .content .button a{
+    display: inline-block;
+    width: 80px;
+    height:30px;
+    background: orangered;
+    color:whitesmoke;
+    font-size: 15px;
+    text-align: center;
+    line-height:30px;
+    text-decoration: none;
+    cursor:pointer;
+}
+.con{
+    position: absolute;
+    top:380px;
+    left: 450px;
+    margin-bottom: 80px;
+}
+.cons{
+    width: 1000px;
+    height:auto;
+    background: whitesmoke;
+}
+.cons .title{
+    text-align: center;
+    margin-top: 30px;
+}
+.cons .title .t{
+    font-size: 40px;
+    font-weight: bold;
+}
+.cons .content{
+    margin-top: 30px;
+    padding:20px;
+    text-indent: 2em;
+    line-height: 40px;
+    font-size: 18px;
+}
+.cons .foot{
+    position: absolute;
+    right:100px;
+}
+.cons .p{
+    text-align: center;
+}
+.cons .p button{
+    width: 100px;
+    height:40px;
+    font-size: 25px;
+    background:orangered;
+    border:0;
+    color:whitesmoke;
+    margin-bottom: 30px;
+}
+.con .comment{
+    width: 1000px;
+    height:auto;
+    margin-top: 50px;
+    background: whitesmoke;
+    margin-bottom: 30px;
+}
+.con .comment .btn{
+    display: none;
+}
+.con .comment .btn textarea{
+    margin-top:10px;
+    margin-left: 100px;
+    text-indent: 2em;
+    padding:5px;
+}
+.con .comment .btn button{
+    width: 60px;
+    height:20px;
+    font-size: 15px;
+    background:orangered;
+    color:whitesmoke;
+    border:0;
+}
+.comm{
+    margin-top: 10px;
+}
+.comm ul li{
+    list-style: none;
+    margin-bottom: 30px;
+
+}
+.comm ul li .info .span1{
+    font-size: 15px;
+    margin-left: 100px;
+}
+.comm ul li .info .span2{
+    font-size: 15px;
+    margin-left: 650px;
+}
+.comm ul li .com{
+    text-align: center;
+}
+.comm .p{
+    width: 1000px;
+    height:200px;
+    text-align: center;
+ }
+.comm .p span{
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 200px;
+}
+.pin{
+    margin-bottom: 30px;
+    margin-top:20px;
+}
+.pin .spanx{
+    margin-left:30px;
+    font-weight: bold;
+    font-size: 22px;
+    color:darkorange;
+}
+.pin .spany{
+    margin-left:740px;
+    font-weight: bold;
+    font-size: 22px;
+    color:darkorange;
+}
+.page{
+    height:80px;
+    line-height: 80px;
+
+
+}
+.page .tPage{
+    font-size: 20px;
+    background: orange;
+    color: whitesmoke;
+    cursor: pointer;
+    margin-left: 50px;
+}
+.page .bPage{
+    font-size: 20px;
+    background: orange;
+    color: whitesmoke;
+    cursor: pointer;
+    margin-left: 360px;
+}
+.page .aPage{
+    margin-left: 380px;
+}

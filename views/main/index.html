@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div>
+    <div id="right">
+        {% for content in data.content %}
+        <div class="content">
+            <div class="title">
+                <h3>{{content.category.name}}/{{content.title}}</h3>
+            </div>
+            <div class="jie">{{content.description}}</div>
+            <div class="Info">
+                <span>作者：{{content.users.userName}}</span>&nbsp&nbsp&nbsp
+                <span>{{content.addTime|date('Y-m-d H:i:s',-8*60)}}</span>
+            </div>
+            <div class="views">
+                <span>浏览量：{{content.views}}</span>&nbsp&nbsp&nbsp
+                <span>评论：{{content.comments.length}}</span>
+            </div>
+            <div class="button"><a href="/views?contentId={{content.id}}">阅读全文</a></div>
+        </div>
+        {% endfor %}
+        <nav aria-label="...">
+            <ul class="pager">
+                {% if data.page==1 %}
+                <li><span>已经是第一页</span></li>
+                {% else %}
+                <li><a href="/?id={{data.category}}&page={{data.page-1}}">上一页</a></li>
+                {% endif %}
+                <span>{{data.page}}/{{data.pageMax}}</span>
+                {% if data.page==data.pageMax %}
+                <li><span>已经是最后一页了</span></li>
+                {% else %}
+                <li><a href="/?id={{data.category}}&page={{data.page+1}}">下一页</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
+<div id="userLeft">
+    {% if data.userInfo.userId %}
+    <div id="userInfo">
+        <div class="userInfoTitle"><span>欢迎来到我的博客</span></div>
+        <div class="userName">用户名：<span>{{data.userInfo.userName}}</span></div>
+        {% if data.userInfo.isAdmin %}
+        <div class="admin">你是管理员：<a href="/admin">点击进入后台</a></div>
+        {% endif %}
+        <!--<div class="watch">快来看看我的内容</div>-->
+        <div class="logout">退出</div>
+    </div>
+    {%else%}
+    <div id="register">
+        <div class="title"><span>注册</span></div>
+        <div class="line"><span>用户：</span><input type="text" name="username" class="text"/></div>
+        <div class="line"><span>密码：</span><input type="password" name="password" class="text"/></div>
+        <div class="line"><span>确认：</span><input type="password" name="rePassword" class="text"/></div>
+        <div class="line"><input type="button" value="提交" class="button"/><span class="link">已有密码？点击登录</span></div>
+    </div>
+    <div id="login">
+        <div class="title"><span>登录</span></div>
+        <div class="line"><span>用户：</span><input type="text" name="username" class="text"/></div>
+        <div class="line"><span>密码：</span><input type="password" name="password" class="text"/></div>
+        <div class="line"><input type="button" value="提交" class="button"/><span class="link">还没有密码？点击注册</span></div>
+    </div>
+</div>
+    {%endif%}
+{% endblock %}

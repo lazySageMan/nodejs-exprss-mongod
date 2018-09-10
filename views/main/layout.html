@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap-theme.min.css"/>
+    <script src="/public/js/jquery-3.2.1.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/css/main.css"/>
+    <script src="/public/js/main.js"></script>
+</head>
+<body style="background: gainsboro;">
+<header>
+    <div class="backimg" style="background: orange;"></div>
+    <div class="logo"></div>
+</header>
+<nav>
+    <div class="menu">
+        {% if data.category=='' %}
+        <a href="/" class="focus">首页</a>
+        {% else %}
+        <a href="/">首页</a>
+        {% endif %}
+
+        {% for cate in data.categories %}
+        {% if cate.id==data.category %}
+        <a href="/?id={{cate.id}}" class="focus">{{cate.name}}</a>
+        {% else %}
+        <a href="/?id={{cate.id}}">{{cate.name}}</a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</nav>
+<!-- 用户页面 -->
+{% block content %}
+
+
+
+{% endblock %}
+
+</body>
+</html>

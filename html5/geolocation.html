@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>geolocation</title>
+    <script>
+        window.onload=function (){
+
+            //地里位置的来源
+            //ip地址，Gps全球定位,wifi无线网络，基站
+            //LBS基于地里位置信息的应用
+            //地里位置对象　navigator.geolocation
+            var btn=document.getElementById("btn");
+            var txt=document.getElementById("txt");
+
+            btn.onclick=function(){
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showPos,showErr);
+                }else{
+                    console.log("浏览器版本过低，请用高版本浏览器");
+                }
+            };
+            function showPos(value){
+                var longitude = value.coords.longitude; //获取京都
+                var latitude = value.coords.latitude;　//获取纬度
+                var str="";
+                str+=longitude+'\n'+latitude;
+                txt.innerText+=str;
+            }
+            function showErr(value){
+                switch (value.code){
+                    case 1:
+                        alert(value.code);
+                        break;
+                    case 2:
+                        alert(value.code);
+                        break;
+                    default:
+                        alert(value.code);
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">搜索</button>
+    <br/>
+    <textarea id="txt" style="width: 500px;height:300px;"></textarea>
+</body>
+</html>
